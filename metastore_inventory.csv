@@ -1,0 +1,136 @@
+﻿sqlserver,dial_metastore,dbo,Element,ElementId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Element,LogsId,2,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Element,OrderSequence,3,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Element,DataSetId,4,int,NULL,FOREIGN KEY,dbo,Dataset,DatasetId
+sqlserver,dial_metastore,dbo,Element,Name,5,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Element,Definition,6,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Element,Critical,7,char,1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Element,PII,8,char,1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Element,NonSensitive,9,char,1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Element,ClassificationTypeId,10,int,NULL,FOREIGN KEY,dbo,ClassificationType,ClassificationTypeId
+sqlserver,dial_metastore,dbo,Element,SurrogateId,11,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,AgreementElements,AgreementElementsId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,AgreementElements,AgreementId,2,int,NULL,FOREIGN KEY,dbo,Agreement,AgreementId
+sqlserver,dial_metastore,dbo,AgreementElements,ElementId,3,int,NULL,FOREIGN KEY,dbo,Element,ElementId
+sqlserver,dial_metastore,dbo,AgreementElements,LogsId,4,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,AgreementElements,Masked,5,char,1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,AgreementElements,Approval,6,char,1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,AgreementElements,Remark,7,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,AdditionalRestriction,AdditionalRestrictionId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,AdditionalRestriction,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,AdditionalRestriction,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SystemInfo,SystemInfoId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SystemInfo,QarId,2,int,NULL,FOREIGN KEY,dbo,QAR,QARID
+sqlserver,dial_metastore,dbo,SystemInfo,SystemName,3,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SystemInfo,Description,4,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SystemInfo,DisplayName,5,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SystemInfo,AdditionalRestrictionsId,6,int,NULL,FOREIGN KEY,dbo,AdditionalRestriction,AdditionalRestrictionId
+sqlserver,dial_metastore,dbo,SystemInfo,GoldenSourceId,7,int,NULL,FOREIGN KEY,dbo,GoldenSource,GoldenSourceId
+sqlserver,dial_metastore,dbo,SystemInfo,Internal_External,8,nvarchar,20,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SystemInfo,ProductOwner_Corp_Id,9,int,NULL,FOREIGN KEY,dbo,Owner,OwnerId
+sqlserver,dial_metastore,dbo,Type,TypeId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Type,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Type,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Interface,InterfaceId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Interface,SystemId,2,int,NULL,FOREIGN KEY,dbo,SystemInfo,SystemInfoId
+sqlserver,dial_metastore,dbo,Interface,TypeId,3,int,NULL,FOREIGN KEY,dbo,Type,TypeId
+sqlserver,dial_metastore,dbo,Interface,TransportTypeId,4,int,NULL,FOREIGN KEY,dbo,TransportType,TransportTypeId
+sqlserver,dial_metastore,dbo,Interface,Version,5,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Interface,Description,6,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Interface,StatusId,7,int,NULL,FOREIGN KEY,dbo,Status,StatusId
+sqlserver,dial_metastore,dbo,Interface,Contact_Corp_Id,8,int,NULL,FOREIGN KEY,dbo,Owner,OwnerId
+sqlserver,dial_metastore,dbo,SourceFile,SourceFileId,1,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,InterfaceId,2,int,NULL,FOREIGN KEY,dbo,Interface,InterfaceId
+sqlserver,dial_metastore,dbo,SourceFile,InterfaceId,2,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,Filename,3,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,Extention,4,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,Delimiter,5,char,5,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,FileFormat,6,nvarchar,25,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,Header,7,char,5,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,Footer,8,char,5,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,Description,9,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,TypeId,10,int,NULL,FOREIGN KEY,dbo,Type,TypeId
+sqlserver,dial_metastore,dbo,SourceFile,TransportTypeId,11,int,NULL,FOREIGN KEY,dbo,TransportType,TransportTypeId
+sqlserver,dial_metastore,dbo,SourceFile,CompressionType,12,nvarchar,25,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,DeliveryFrequency,13,nvarchar,25,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,Push_Pull,14,char,5,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceFile,EncodingId,15,int,NULL,FOREIGN KEY,dbo,Encoding,EncodingId
+sqlserver,dial_metastore,dbo,SourceAttribute,SourceAttributeId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,SourceField,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,Order,3,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,ColumnSequence,4,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,DataTypeId,5,int,NULL,FOREIGN KEY,dbo,DataType,DataTypeId
+sqlserver,dial_metastore,dbo,SourceAttribute,FieldLength,6,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,Unique,7,char,1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,Primary,8,char,1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,Nullable,9,char,1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,Index,10,char,1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,DefaultValue,11,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,Precision,12,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,SourceAttribute,Scale,13,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,ElementAttributes,ElementAttributesId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,ElementAttributes,SourceAttributeId,2,int,NULL,FOREIGN KEY,dbo,SourceAttribute,SourceAttributeId
+sqlserver,dial_metastore,dbo,ElementAttributes,ElementId,3,int,NULL,FOREIGN KEY,dbo,Element,ElementId
+sqlserver,dial_metastore,dbo,sysdiagrams,name,1,nvarchar,128,UNIQUE,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,sysdiagrams,principal_id,2,int,NULL,UNIQUE,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,sysdiagrams,diagram_id,3,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,sysdiagrams,version,4,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,sysdiagrams,definition,5,varbinary,-1,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Encoding,EncodingId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Encoding,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Encoding,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,TransportType,TransportTypeId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,TransportType,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,TransportType,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,QAR,QARID,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,QAR,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,QAR,BAO_UCORP_ID,3,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,QAR,QAR_DAO,4,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,QAR,Engineering_Lead,5,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,ClassificationType,ClassificationTypeId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,ClassificationType,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,ClassificationType,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataType,DataTypeId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataType,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataType,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataType,DataTypeSourceId,4,int,NULL,FOREIGN KEY,dbo,DataTypeSource,DataTypeSourceId
+sqlserver,dial_metastore,dbo,DataTypeSource,DataTypeSourceId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataTypeSource,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataTypeSource,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataTypeSource,DataTypeSourceVersion,4,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,BusinessLine,BusinessLineId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,BusinessLine,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,BusinessLine,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Category,CategoryId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Category,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Category,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataDomain,DataDomainId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataDomain,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,DataDomain,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Status,StatusId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Status,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Status,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,GoldenSource,GoldenSourceId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,GoldenSource,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,GoldenSource,Description,3,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,GoldenSource,QarId,4,int,NULL,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Owner,OwnerId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Owner,Name,2,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Owner,Corp_ID,3,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Dataset,DatasetId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Dataset,GoldenSourceId,2,int,NULL,FOREIGN KEY,dbo,GoldenSource,GoldenSourceId
+sqlserver,dial_metastore,dbo,Dataset,Name,3,nvarchar,255,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Dataset,Description,4,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Dataset,QarId,5,int,NULL,FOREIGN KEY,dbo,QAR,QARID
+sqlserver,dial_metastore,dbo,Dataset,CategoryId,6,int,NULL,FOREIGN KEY,dbo,Category,CategoryId
+sqlserver,dial_metastore,dbo,Dataset,DataDomainId,7,int,NULL,FOREIGN KEY,dbo,DataDomain,DataDomainId
+sqlserver,dial_metastore,dbo,Dataset,BusinessLineId,8,int,NULL,FOREIGN KEY,dbo,BusinessLine,BusinessLineId
+sqlserver,dial_metastore,dbo,Dataset,StatusId,9,int,NULL,FOREIGN KEY,dbo,Status,StatusId
+sqlserver,dial_metastore,dbo,Dataset,OwnerId,10,int,NULL,FOREIGN KEY,dbo,Owner,OwnerId
+sqlserver,dial_metastore,dbo,Dataset,DelegateOwnerId,11,int,NULL,FOREIGN KEY,dbo,Owner,OwnerId
+sqlserver,dial_metastore,dbo,Agreement,AgreementId,1,int,NULL,PRIMARY KEY,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Agreement,RequestorId,2,int,NULL,FOREIGN KEY,dbo,Owner,OwnerId
+sqlserver,dial_metastore,dbo,Agreement,QarId,3,int,NULL,FOREIGN KEY,dbo,QAR,QARID
+sqlserver,dial_metastore,dbo,Agreement,Description,4,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Agreement,Purpose,5,ntext,1073741823,NULL,NULL,NULL,NULL
+sqlserver,dial_metastore,dbo,Agreement,ExpirationDate,6,datetime,NULL,NULL,NULL,NULL,NULL
